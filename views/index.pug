@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  .container-fluid
+    h2.display-6.mb-3 Translation
+    .card
+      .card-header Interaction Box
+      .card-body
+        .row
+          .col-lg.mt-1.m-1
+            .card.h-100
+              .card-body
+                h5 Pre-process Paragraph
+                form#req(action="/", method="post", name="req")
+                  .row.mt-3.mb-3
+                    .col-lg
+                      label.form-label(for="source_lang") From
+                      select.form-select#source_lang(name="source_lang", aria-label="From Language")
+                        option(selected) EN
+                        option ZH
+                        option DE
+                        option ES
+                        option FR
+                        option IT
+                        option JA
+                        option KO
+                        option NL
+                        option PL
+                        option PT
+                        option RU
+                    .col-lg 
+                      label.form-label(for="target_lang") To
+                      select.form-select#target_lang(name="target_lang", aria-label="To Language")
+                        option(selected) EN
+                        option ZH
+                        option DE
+                        option ES
+                        option FR
+                        option IT
+                        option JA
+                        option KO
+                        option NL
+                        option PL
+                        option PT
+                        option RU
+                  .mb-3
+                    label.form-label(for="text") Text
+                    textarea.form-control#text(type="text", rows="6", name="text", placeholder="Text Here" required)
+                  button.btn.btn-primary(type="submit") Submit
+          .col-lg.mt-1.m-1
+            .card.h-100
+              .card-body
+                h5 Result
+                hr
+                strong.text-muted= data
+                hr
+                div
+                  each val in alts
+                    .text-muted= val
+                  else
+                    .text-muted Empty
+    .text-muted.text-center.mt-5 Powered by DeepLX
+  script(src='/js/jquery.min.js')
+  script(src="/js/validation.js")

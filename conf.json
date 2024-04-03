@@ -1,0 +1,5 @@
+{
+    "port": "<Your app port desired>",
+    "server": "<Your server here>",
+    "token": "<Your token here>"
+}
