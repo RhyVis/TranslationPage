@@ -17,7 +17,6 @@ app.use(cookieParser());
 app.use(express.static('./public'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 app.use((_1, _2, next) => {
   next(createHttpError(404));
